@@ -25,7 +25,10 @@ jobs:
         with:
           java-version: ${{ matrix.java }}
       - name: setup fork
-        run: java -jar fabricweight.jar patch
+        run: |
+        git config --global user.email "ci@github.com"
+        git config --global user.name "Github CI"
+        java -jar fabricweight.jar patch
       - name: make gradle wrapper executable
         working-directory: ./workspace
         if: ${{ runner.os != 'Windows' }}
