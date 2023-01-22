@@ -36,9 +36,8 @@ jobs:
       - name: capture build artifacts
         if: ${{ runner.os == 'Linux' && matrix.java == '17' }} # Only upload artifacts built from LTS java on one OS
         uses: actions/upload-artifact@v2
-        working-directory: ./workspace
         with:
           name: Artifacts
           path: |
-            WCFabric/build/libs/*
-            WCForge/build/libs/*
+            workspace/WCFabric/build/libs/*
+            workspace/WCForge/build/libs/*
